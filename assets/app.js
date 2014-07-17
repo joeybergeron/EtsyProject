@@ -1,18 +1,14 @@
-var etsy_url = "https://openapi.etsy.com/";
-var version = "v2/";
-var model = "listings/";
-var filter = "active";
-var js = ".js";
-var api_key = "7okfvpf465wxeoopuib7qgbe";
-var complete_api_url = etsy_url + version;
+window.onload = app;
+function app(){
+    var EtsyEngine = new EtsyClient({api_key:"7okfvpf465wxeoopuib7qgbe"});
+    EtsyEngine.pullAllActiveListings();
+}
 
-$.getJSON(complete_api_url + model + filter + js + "?" + "api_key=" + api_key + "&callback=?").then(function(data){
-    console.log(data);
-});
+/**
+ * Constructor for the Etsy Engine
+ */
 
 function EtsyClient(options) {
-    
-
     if (!options.api_key) {
         throw new Error("Error");
     }
@@ -25,7 +21,7 @@ function EtsyClient(options) {
 EtsyClient.prototype.pullAllActiveListings = function() {
     var model = 'listings';
     var filter = 'active';
-    return $.getJSON(this.complete_api_url + model + filter + ".js?api_key=" + this.api_key + "&callback=?").then(function(data) {
+    return $.getJSON(this.complete_api_url + model + '/' + filter + ".js?limit=12&api_key=" + this.api_key + "&callback=?").then(function(data) {
         console.log(data);
     });
 }
