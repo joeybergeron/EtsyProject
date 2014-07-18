@@ -2,6 +2,8 @@ window.onload = app;
 function app(){
     var EtsyEngine = new EtsyClient({api_key:"7okfvpf465wxeoopuib7qgbe"});
     EtsyEngine.pullAllActiveListings();
+    EtsyEngine.getUserInfo(16962453);
+    EtsyEngine.getListingInfo(196844450);
 }
 
 /**
@@ -25,11 +27,15 @@ function EtsyClient(options) {
 EtsyClient.prototype.pullAllActiveListings = function() {
     var model = 'listings';
     var filter = 'active';
-    return $.getJSON(this.complete_api_url + model + '/' + filter + ".js?limit=12&includes=MainImage&api_key=" + this.api_key + "&callback=?").then(function(data) {
+    var items = 12;
+    return $.getJSON(this.complete_api_url + model + '/' + filter + ".js?limit=" + items + "&includes=MainImage&api_key=" + this.api_key + "&callback=?").then(function(data) {
         console.log(data);
     });
 }
 
+function grid(){
+    
+}
 /**
  * Called Listing
  */
@@ -46,8 +52,24 @@ EtsyClient.prototype.getListingInfo = function(id) {
  */
 
 EtsyClient.prototype.getUserInfo = function(user_id_or_name) {
-    var model = 'listings';
+    var model = 'users';
     return $.getJSON(this.complete_api_url + model + '/' + user_id_or_name + ".js?api_key=" + this.api_key + "&callback=?").then(function(data) {
         console.log(data);
+    });
+}
+
+/**
+* Click Events
+*/
+EtsyClient.prototype.handleClickEvents = function(){
+    var self = this;
+    this.item_selector.addEventListener('click', function(){
+
+    });
+    this.next_button.addEventListener('click', function(){
+        self.next();
+    });
+    this.back_button.addEventListener('click', function(){
+        self.back();
     });
 }
