@@ -1,17 +1,3 @@
-<<<<<<< HEAD
- 
-var etsy_url = "https://openapi.etsy.com/";
-var version = "v2/";
-var model = "listings/";
-var filter = "active";
-var js = ".js";
-var api_key = "7okfvpf465wxeoopuib7qgbe";
-var complete_api_url = etsy_url + version;
-
-$.getJSON(complete_api_url + model + filter + js + "?" + "api_key=" + api_key + "&callback=?").then(function(data){
-    console.log(data);
-});
-=======
 window.onload = app;
 function app(){
     var EtsyEngine = new EtsyClient({api_key:"7okfvpf465wxeoopuib7qgbe"});
@@ -20,7 +6,6 @@ function app(){
     EtsyEngine.getListing(196844450);
     EtsyEngine.showListings();
 }
->>>>>>> 036e9318160af4b7a5e29aa36e65a85a1bedfa5a
 
 /**
  * Constructor for the Etsy Engine
