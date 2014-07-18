@@ -15,9 +15,10 @@ $.getJSON(complete_api_url + model + filter + js + "?" + "api_key=" + api_key + 
 window.onload = app;
 function app(){
     var EtsyEngine = new EtsyClient({api_key:"7okfvpf465wxeoopuib7qgbe"});
-    EtsyEngine.pullAllActiveListings();
-    EtsyEngine.getUserInfo(16962453);
-    EtsyEngine.getListingInfo(196844450);
+    EtsyEngine.getActiveListings();
+    EtsyEngine.getUser(16962453);
+    EtsyEngine.getListing(196844450);
+    EtsyEngine.showListings();
 }
 >>>>>>> 036e9318160af4b7a5e29aa36e65a85a1bedfa5a
 
@@ -39,7 +40,7 @@ function EtsyClient(options) {
  * Active Listings
  */
 
-EtsyClient.prototype.pullAllActiveListings = function() {
+EtsyClient.prototype.getActiveListings = function() {
     var model = 'listings';
     var filter = 'active';
     var items = 12;
@@ -48,14 +49,22 @@ EtsyClient.prototype.pullAllActiveListings = function() {
     });
 }
 
-function grid(){
-    
+EtsyClient.prototype.showListings = function() {
+    var self = this;
+    $.when(
+        this.getTemplate('/assets/templates/listings.tmpl'),
+        this.getActiveListings()
+    ).then(function(template, data) {
+        console.log(data);
+        self.container.innerHTML = template(data);
+    });
 }
+
 /**
  * Called Listing
  */
 
-EtsyClient.prototype.getListingInfo = function(id) {
+EtsyClient.prototype.getListing = function(id) {
     var model = 'listings';
     return $.getJSON(this.complete_api_url + model + '/' + id + ".js?api_key=" + this.api_key + "&callback=?").then(function(data) {
         console.log(data);
@@ -66,11 +75,30 @@ EtsyClient.prototype.getListingInfo = function(id) {
  * Called User
  */
 
-EtsyClient.prototype.getUserInfo = function(user_id_or_name) {
+EtsyClient.prototype.getUser= function(user_id_or_name) {
     var model = 'users';
     return $.getJSON(this.complete_api_url + model + '/' + user_id_or_name + ".js?api_key=" + this.api_key + "&callback=?").then(function(data) {
         console.log(data);
     });
+}
+
+/**
+* Core Template
+*/
+
+EtsyClient.prototype.getTemplate = function(url) {
+    var self = this;
+    if (!_ || !_.template) throw new Error("Did you forget to load lodash?");
+    if (!this.templates[url]) {
+        return $.get(url).then(function(tmpl) {
+            self[url] = _.template(tmpl);
+            return self[url];
+        });
+    } else {
+        var promise = $.Deferred();
+        promise.resolve(self[templates]);
+        return promise;
+    }
 }
 
 /**
