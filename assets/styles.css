@@ -1,4 +1,30 @@
+/*******************__  __**************************************  
+   ____ ___  __  __/ /_/ /_ 
+  / __ `__ \/ / / / __/ __ \
+ / / / / / / /_/ / /_/ / / /
+/_/ /_/ /_/\__, /\__/_/ /_/ 
+		  /____/                             
+**********************************************************/
+:root {
+  --gray: rgb(159, 159, 169);
+}
+
 *, *:before, *:after {
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
+}
+body{
+	margin: 0px; 
+}
+.grid {
+	display: table;
+	width: 100%;
+	margin: 0 auto;
+
+}
+.grid > div {
+	display: table-cell;
+}
+h3 {
+	font-size: .5em;
+	color: var(--gray);
 }
