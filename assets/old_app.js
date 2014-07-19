@@ -2,8 +2,8 @@ window.onload = app;
 function app(){
     var EtsyEngine = new EtsyClient({api_key:"7okfvpf465wxeoopuib7qgbe"});
     EtsyEngine.getActiveListings();
-    EtsyEngine.getUser(16962453);
     EtsyEngine.getListing(196844450);
+    EtsyEngine.getUser(16962453);    
     EtsyEngine.showListings();
 }
 
