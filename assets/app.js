@@ -41,6 +41,7 @@ EtsyClient.prototype.getActiveListings = function() {
         '/active',
         ".js?api_key=",
         this.api_key,
+        "&limit=12",
         "&includes=MainImage",
         "&callback=?"
     ];
