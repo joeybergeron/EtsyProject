@@ -4,9 +4,9 @@
 	<h2>Random Cool Things</h2>
 	<img src="./img/arrow.png">
 </div>
-<div class="grid">
+<div class="grid listings">
 	<% _.forEach(results, function(listings) { %>
-		<div class="<%= listings.listing_id %> listings">
+		<div class="<%= listings.listing_id %> listing">
 			<img src="<%= listings.MainImage.url_570xN %>">
 			<h3><%= listings.title %></h3>
 			<h2>$<%= listings.price %></h2>

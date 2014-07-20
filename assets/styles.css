@@ -76,16 +76,10 @@ h2 {
 	width: 250px;
 	margin: 0px 25px;
 }
-.listings img {
+.listing img {
 	width:  250px;
   	height: 250px;
 }
-.listings {
+.listing {
 	max-height: 600px;
-}
-/**************************
-**********ACTIVE***********
-***************************/
-.listings:hover{
-	
 }
