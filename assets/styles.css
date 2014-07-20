@@ -1,32 +1,91 @@
-/*******************__  __**************************************  
+/*********************************************************
+					__  __  
    ____ ___  __  __/ /_/ /_ 
   / __ `__ \/ / / / __/ __ \
  / / / / / / /_/ / /_/ / / /
 /_/ /_/ /_/\__, /\__/_/ /_/ 
-		  /____/                             
+		  /____/                       
+Using Myth.io to style this stylesheet      
 **********************************************************/
 :root {
   --gray: rgb(159, 159, 169);
 }
-
+/**************************
+***********FONT***********
+***************************/
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700,300italic,400italic,700italic);
+/**************************
+**********GLOBAL***********
+***************************/
 *, *:before, *:after {
     box-sizing: border-box;
 }
 body{
+	max-width: 960px;
 	margin: 0px auto; 
+	font-family: 'Josefin Sans', sans-serif;
 }
+/**************************
+***********TEXT***********
+***************************/
+h1{
+	padding-top: 100px;
+	padding-bottom: 50px;
+	font-size: 7em;
+	text-align: center;
+	text-transform: uppercase;
+}
+h3 {
+	margin: 25px 0px;
+	padding: 25px 0px;
+	font-size: 15px;
+	color: var(--gray);
+	text-align: left;
+	text-transform: uppercase;
+	border-top: 1px solid var(--gray);
+	border-bottom: 1px solid var(--gray);
+	height: 150px;
+}
+h2 {
+	margin-bottom: 50px;
+	text-align: center;
+	text-transform: uppercase;
+}
+.header h2 {
+	padding-top: 60px;
+}
+.header img {
+	display: block;
+	margin: 0 auto;
+}
+.footer p {
+	font-size: 1.5em;
+	text-align: center;
+	text-transform: uppercase;
+}
+/**************************
+***********GRID************
+***************************/
 .grid {
-	padding: 50px 0;
+	margin: 150px auto;
 	text-align: center;
 }
 .grid > div {
 	display: inline-block;
-	width: 200px;
+	vertical-align: top;
+	width: 250px;
+	margin: 0px 25px;
 }
-.listings:nth-child(-n+3){
-
+.listings img {
+	width:  250px;
+  	height: 250px;
 }
-h3 {
-	font-size: 15px;
-	color: var(--gray);
+.listings {
+	max-height: 600px;
+}
+/**************************
+**********ACTIVE***********
+***************************/
+.listings:hover{
+	
 }

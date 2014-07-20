@@ -93,8 +93,6 @@ EtsyClient.prototype.showListings = function() {
         this.getActiveListings()
     ).then(function(template, data) {
         console.log(data);
-        // var one_result = data.results[0];
-        // self.container.innerHTML = template(one_result);
         self.container.innerHTML = template(data);
     });
 }
