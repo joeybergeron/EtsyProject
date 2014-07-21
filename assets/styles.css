@@ -90,6 +90,9 @@ h4{
 .listing {
 	max-height: 600px;
 }
+.listing a{
+	text-decoration: none;
+}
 /**************************
 ******SINGLE LISTING*******
 ***************************/

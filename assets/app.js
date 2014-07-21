@@ -16,11 +16,8 @@ function EtsyClient(options) {
     this.container = document.createElement('div');
     document.body.appendChild(this.container);
   
-    // handle events on container
-    this.handleClickEvents();
-  
-    // print the listings template
-    this.showListings();
+    //handle routing
+    this.setupRouting();
 }
 
 /**
@@ -109,19 +106,28 @@ EtsyClient.prototype.showListing = function(id) {
     });
 }
 
-EtsyClient.prototype.handleClickEvents = function() {
+/**
+ * -----------------------------------------------------------------------------------------
+ * THE APP ROUTING
+ * -----------------------------------------------------------------------------------------
+ * This is for routing pages
+ */
+
+EtsyClient.prototype.setupRouting = function(){
     var self = this;
-    $(this.container).on('click', '.listings > div', function() {
-        console.log('clicking on:');
-        console.log(this);
-        self.showListing(this.getAttribute('listing'));
-    });
-    $(this.container).on('click', '.listing .back', function() {
+
+    Path.map("#/").to(function() {
         self.showListings();
     });
-    $(window).on('keydown', function(e) {
-        if(e.which === 27) self.showListings();
+
+    Path.map("#/listing/:id").to(function() {
+        console.log(this);
+        self.showListing(this.params.id);
     });
+
+    // set the default hash
+    Path.root("#/");
+    Path.listen();
 }
 
 /**
