@@ -105,6 +105,7 @@ EtsyClient.prototype.showListing = function(id) {
     ).then(function(template, data) {
         console.log(data);
         self.container.innerHTML = template(data.results[0]);
+        window.scrollTo(0,0);
     });
 }
 
