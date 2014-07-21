@@ -9,6 +9,7 @@ Using Myth.io to style this stylesheet
 **********************************************************/
 :root {
   --gray: rgb(159, 159, 169);
+  --center: 0 auto;
 }
 /**************************
 ***********FONT***********
@@ -22,7 +23,7 @@ Using Myth.io to style this stylesheet
 }
 body{
 	max-width: 960px;
-	margin: 0px auto; 
+	margin: var(--center); 
 	font-family: 'Josefin Sans', sans-serif;
 }
 /**************************
@@ -32,6 +33,11 @@ h1{
 	padding-top: 100px;
 	padding-bottom: 50px;
 	font-size: 7em;
+	text-align: center;
+	text-transform: uppercase;
+}
+h2 {
+	margin-bottom: 50px;
 	text-align: center;
 	text-transform: uppercase;
 }
@@ -46,22 +52,23 @@ h3 {
 	border-bottom: 1px solid var(--gray);
 	height: 150px;
 }
-h2 {
-	margin-bottom: 50px;
-	text-align: center;
-	text-transform: uppercase;
+h4{
+	color: var(--gray);
 }
 .header h2 {
 	padding-top: 60px;
 }
 .header img {
 	display: block;
-	margin: 0 auto;
+	margin: var(--center);
 }
 .footer p {
 	font-size: 1.5em;
 	text-align: center;
 	text-transform: uppercase;
+}
+.back {
+	font-size: 1.5em;
 }
 /**************************
 ***********GRID************
@@ -82,4 +89,41 @@ h2 {
 }
 .listing {
 	max-height: 600px;
+}
+/**************************
+******SINGLE LISTING*******
+***************************/
+.single_Listing {
+	max-width: 800px;
+	margin: 40px auto;
+}
+.single_Listing img {
+	display: block;
+	margin: var(--center);
+}
+.single_Listing h2 {
+	display: inline-block;
+}
+.single_Listing h3 {
+	text-align: center;
+	font-size: 1.5em;
+}
+.single_Listing h4 {
+	display: inline-block;
+}
+.buy {
+	display: block;
+	margin: 80px auto 150px auto;
+	font-size: 3em;
+	font-weight: 700;
+	background-color: rgb(159, 159, 169);
+	padding: 20px 0px;
+	line-height: 1em;
+	color: rgb(245, 245, 245);
+	text-decoration: none;
+	text-align: center;
+}
+.price {
+	display: block;
+	text-align: center;
 }

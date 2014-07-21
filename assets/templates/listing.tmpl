@@ -4,15 +4,16 @@
 	<h2>Random Cool Things</h2>
 	<img src="./img/arrow.png">
 </div>
-<div class="grid">
-		<div class="back">Back</div>
-		<div class="single_listing">
-			<img src="<%= listings.MainImage.url_570xN %>">
-			<h3><%= title %></h3>
-			<h2>$<%= price %></h2>
-			<p><%= user_id %></p>
-			<p><%= description %></p>
-		</div>
+<div class="single_Listing">
+	<a class="listing back" href="">Back</a>
+	<img src="<%= MainImage.url_570xN %>">
+	<h3><%= title %></h3>
+	<div class="price">
+		<h2>$<%= price %></h2>
+		<h4><%= currency_code %></h4>
+	</div>
+	<p><%= description %></p>
+	<a class="buy" href="<%= url %>">Buy</a>
 </div>
 <div class="footer">
 	<p>Brought to you by J &amp; K</p>

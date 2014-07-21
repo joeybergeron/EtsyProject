@@ -6,7 +6,7 @@
 </div>
 <div class="grid listings">
 	<% _.forEach(results, function(listings) { %>
-		<div class="<%= listings.listing_id %> listing">
+		<div listing="<%= listings.listing_id %>" class="listing">
 			<img src="<%= listings.MainImage.url_570xN %>">
 			<h3><%= listings.title %></h3>
 			<h2>$<%= listings.price %></h2>
